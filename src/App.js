@@ -16,13 +16,23 @@ class App extends React.Component {
       input: event.target.value
     });
   }
+  
+
   render() {
     return (
       <div className="App">
-        <Editor method={this.handleChange} />
-        <Previewer method={this.handleChange} output={this.state.input} />
+        <div className="row">
+          <button 
+            className = "copy fas fa-copy" 
+            onClick={() => navigator.clipboard.writeText(this.state.input)}
+          >
+          </button>
+          <Editor method={this.handleChange} />
+          <Previewer method={this.handleChange} output={this.state.input} />
+        </div>
       </div>
     );
+    
   }
 }
 

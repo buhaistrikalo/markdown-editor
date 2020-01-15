@@ -3,17 +3,12 @@ import marked from "marked";
 
 function Previewer(props) {
   return (
-    <div id="wrapper">
-      <div id="youp">
-        <div id="titlePreview">
-          <i className="fa fa-cloud" />
-          <p id="title">Preview</p>
-        </div>
-        <div
-          id="preview"
-          dangerouslySetInnerHTML={createMarkup(props.output)}
-        />
-      </div>
+    <div className='input'>
+      <p className='input__title title'>Markdown</p>
+      <div
+        id="markdown"
+        dangerouslySetInnerHTML={createMarkup(props.output)}
+      />
     </div>
   );
 }
