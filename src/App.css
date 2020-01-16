@@ -72,7 +72,7 @@ body {
 
 #editor, #markdown{
   width: 100%;
-  min-width: 500px;
+  
   max-width: 50vw;
   min-height: 600px;
   border:1px solid black;
@@ -81,6 +81,12 @@ body {
   -moz-box-sizing:border-box;
   box-sizing:border-box;
   padding: 1.25rem;
+}
+
+#markdown{
+  word-wrap: normal;
+  word-break: normal;
+  overflow: auto;
 }
 
 textarea {
@@ -174,10 +180,22 @@ th, td{
   }
   #editor, #markdown{
     min-height: 40vh;
+    min-width: 0;
+    max-width: 100%;
+  }
+  #editor{
+    min-height: 35vh;
+    
   }
   .copy{
     top: 13px;
     left: 80px;
+  }
+  button{
+    margin-top: 10px;
+  }
+  #editor{
+    resize: none;
   }
 
 }

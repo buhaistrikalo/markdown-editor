@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Editor from "./Components/Editor";
 import Previewer from "./Components/Preview";
-
+import NotificationSystem from 'react-notification-system';
 
 
 
@@ -19,14 +19,31 @@ class App extends React.Component {
       input: event.target.value
     });
   }
-  DeleteText() {
+  deleteNotification = event => {
+    event.preventDefault();
+    const notification = this.notificationSystem.current;
+    notification.addNotification({
+      message: 'Содержимое удаленно',
+      level: 'success'
+    });
+
     document.getElementById("editor").value  = ""; 
     this.state.input = '';
     this.setState({
       input: ''
     });
   }
-  
+
+  notificationSystem = React.createRef();
+  copyNotification = event => {
+    event.preventDefault();
+    const notification = this.notificationSystem.current;
+    notification.addNotification({
+      message: 'Содержимое скопировано',
+      level: 'success'
+    });
+    navigator.clipboard.writeText(this.state.input);
+  };
 
   render() {
     return (
@@ -36,20 +53,20 @@ class App extends React.Component {
           <div className='buttons'>
             <button 
               className = "copy fas fa-copy" 
-              onClick={() => navigator.clipboard.writeText(this.state.input)}
+              onClick={this.copyNotification}
             >
             </button>
             <button 
               className = "delete fas fa-trash-alt" 
-              onClick={() => {
-                
-                this.DeleteText();
-              }}
+              onClick={
+                this.deleteNotification
+              }
             >
             </button>
           </div>
           <Previewer method={this.handleChange} output={this.state.input} />
         </div>
+        <NotificationSystem ref={this.notificationSystem} />
       </div>
     );
     
