@@ -23,8 +23,8 @@ class App extends React.Component {
     event.preventDefault();
     const notification = this.notificationSystem.current;
     notification.addNotification({
-      message: 'Содержимое удаленно',
-      level: 'success'
+      message: 'Содержимое удалено',
+      level: 'info'
     });
 
     document.getElementById("editor").value  = ""; 
@@ -40,7 +40,7 @@ class App extends React.Component {
     const notification = this.notificationSystem.current;
     notification.addNotification({
       message: 'Содержимое скопировано',
-      level: 'success'
+      level: 'info'
     });
     navigator.clipboard.writeText(this.state.input);
   };
