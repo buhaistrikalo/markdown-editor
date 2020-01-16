@@ -52,17 +52,25 @@ class App extends React.Component {
           <Editor method={this.handleChange} />
           <div className='buttons'>
             <button 
+              title='Copy'
               className = "copy fas fa-copy" 
               onClick={this.copyNotification}
             >
             </button>
             <button 
+              title='Clear all'
               className = "delete fas fa-trash-alt" 
               onClick={
                 this.deleteNotification
               }
             >
             </button>
+            <form action='https://github.com/sandino/Markdown-Cheatsheet' target="_blank" alt='Help'>
+              <button 
+                title = 'Help'
+                className = "cheatsheet fas fa-question-circle" 
+              />
+            </form>
           </div>
           <Previewer method={this.handleChange} output={this.state.input} />
         </div>
