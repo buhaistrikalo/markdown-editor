@@ -72,6 +72,8 @@ body {
 
 #editor, #markdown{
   width: 100%;
+  min-width: 500px;
+  max-width: 50vw;
   min-height: 600px;
   border:1px solid black;
   background-color: #fff;
@@ -81,24 +83,85 @@ body {
   padding: 1.25rem;
 }
 
-.copy{
+textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  resize: none;
+  
+}
+
+button{
+  margin-top: 100px;
   border: none;
   background: 50px;
   color: black;
   font-size: 30px;
 
-  position: absolute;
-  top: 30px;
-  left: 100px;
   z-index: 2;
   transition: .3s all;
 }
-.copy:hover,
-.copy:active,
-.copy:focus{
+.delete{
+  margin-top: 20px;
+}
+button:hover,
+button:active,
+button:focus{
   color: #495057;
 }
 
+
+pre{
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: rgba(68,238,68, 0.3);
+  border-radius: 3px;
+}
+code{
+  padding: 5px;
+  
+  font-size: 100%;
+  display: inline;
+  max-width: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  border: 0;
+  word-break: normal;
+  white-space: pre;
+}
+
+blockquote{
+  padding: 0 1em;
+  margin-left: 0;
+  color: #6a737d;
+  border-left: .25em solid #dfe2e5;
+}
+
+a{
+  text-decoration: none;
+  color: #0366d6;
+}
+a:hover,
+a:active,
+a:focus{
+  text-decoration: underline;
+}
+table{
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+th, td{
+  padding: 6px 13px;
+  border: 1px solid #dfe2e5;
+}
 @media screen and (max-width: 800px){
   .row{
     display: block;

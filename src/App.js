@@ -3,6 +3,9 @@ import './App.css';
 import Editor from "./Components/Editor";
 import Previewer from "./Components/Preview";
 
+
+
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -16,18 +19,35 @@ class App extends React.Component {
       input: event.target.value
     });
   }
+  DeleteText() {
+    document.getElementById("editor").value  = ""; 
+    this.state.input = '';
+    this.setState({
+      input: ''
+    });
+  }
   
 
   render() {
     return (
       <div className="App">
         <div className="row">
-          <button 
-            className = "copy fas fa-copy" 
-            onClick={() => navigator.clipboard.writeText(this.state.input)}
-          >
-          </button>
           <Editor method={this.handleChange} />
+          <div className='buttons'>
+            <button 
+              className = "copy fas fa-copy" 
+              onClick={() => navigator.clipboard.writeText(this.state.input)}
+            >
+            </button>
+            <button 
+              className = "delete fas fa-trash-alt" 
+              onClick={() => {
+                
+                this.DeleteText();
+              }}
+            >
+            </button>
+          </div>
           <Previewer method={this.handleChange} output={this.state.input} />
         </div>
       </div>
